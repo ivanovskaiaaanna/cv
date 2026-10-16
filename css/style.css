@@ -244,7 +244,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .docs { display: grid; gap: 22px; }
 .doc { margin: 0; background: var(--white); border: 1px solid var(--line); padding: 8px; }
 .doc figcaption { color: var(--ink-2); padding: 8px 2px 0; }
-.doc--logo img { max-height: 120px; width: auto; margin: 10px auto; }
+.card__thumb--contain { background: var(--white); border-bottom: 1px solid var(--line); }
+.card__thumb--contain img { object-fit: contain; object-position: center; padding: 8% 10%; }
+.cs-hero--logo { background: var(--white); border: 1px solid var(--line); padding: 28px 8%; }
+.cs-hero--logo img { max-width: 520px; margin: 0 auto; }
 
 /* табло отправлений */
 .board { background: var(--ink); color: var(--paper); font-family: var(--f-mono); padding: 6px 16px; margin: 0 0 32px; }
@@ -318,7 +321,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .board__row--head { display: grid; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: rgba(237, 237, 232, .5); padding: 12px 0 10px; }
   .board__fmt, .board__who { padding-left: 0; }
   .docs { grid-template-columns: 1fr 1fr; }
-  .doc--logo { grid-column: 1 / -1; }
+  .doc--wide { grid-column: 1 / -1; }
 }
 
 /* ---------- Десктоп ---------- */

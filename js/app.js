@@ -81,7 +81,7 @@
     $('#cards').innerHTML = C.cases.map(function (c, i) {
       var t = c.card[lang];
       return '<li class="reveal"><a class="card" href="#' + c.slug + '" data-case="' + c.slug + '">' +
-        (c.thumb ? '<span class="card__thumb">' + img(c.thumb, '').replace('loading="lazy"', 'loading="eager"') + '</span>' : '') +
+        (c.thumb ? '<span class="card__thumb' + (c.thumbFit ? ' card__thumb--' + c.thumbFit : '') + '">' + img(c.thumb, '').replace('loading="lazy"', 'loading="eager"') + '</span>' : '') +
         '<span class="card__meta"><span class="mono card__n">' + pad(i + 1) + '</span>' +
         (t.period ? '<span class="mono">' + esc(t.period) + '</span>' : '') +
         '<span class="pill">' + esc(t.type) + '</span></span>' +
@@ -162,7 +162,7 @@
     h += '<div class="cs-main">';
     if (c.hero) {
       var heroImg = img(c.hero, t.title);
-      h += '<figure class="cs-hero' + (c.heroLink ? ' cs-hero--doc' : '') + '" data-photo>' +
+      h += '<figure class="cs-hero' + (c.heroLink ? ' cs-hero--doc' : '') + (c.heroFit ? ' cs-hero--' + c.heroFit : '') + '" data-photo>' +
         (c.heroLink ? '<a href="' + esc(c.hero) + '" target="_blank" rel="noopener">' + heroImg + '</a>' : heroImg) + '</figure>';
     }
 

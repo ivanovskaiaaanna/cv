@@ -310,7 +310,8 @@ window.CONTENT = {
 
     {
       slug: 'voltna',
-      thumb: 'img/voltna-site-map-card.webp',
+      thumb: 'img/voltna-logo.webp',
+      thumbFit: 'contain',
       card: {
         ru: { title: 'Фестиваль «Вольтна»', period: 'апр–июн 2026', type: 'Концепция', line: 'Концепция серф-музыкального фестиваля во Владивостоке: название, айдентика, план площадки, смета' },
         en: { title: 'VOLTNA festival', period: 'Apr–Jun 2026', type: 'Concept', line: 'Concept for a surf and music festival in Vladivostok: name, identity, site plan, budget' }
@@ -357,11 +358,11 @@ window.CONTENT = {
         ru: 'Готовая концепция фестиваля, защищённая в университете: от названия и карты площадки до бюджета и плана развития на три года.',
         en: 'A complete festival concept, defended at the university: from the name and site map to the budget and a three-year growth plan.'
       },
-      hero: 'img/voltna-site-map.webp',
-      heroLink: true,
+      hero: 'img/voltna-logo.webp',
+      heroFit: 'logo',
       link: { href: 'docs/voltna-presentation.pdf', ru: 'Смотреть презентацию', en: 'View presentation', note: { ru: 'ПДФ, 18 слайдов', en: 'PDF, 18 slides' } },
       docs: [
-        { src: 'img/voltna-logo.webp', ru: 'логотип', en: 'logo', cls: 'doc--logo' },
+        { src: 'img/voltna-site-map.webp', ru: 'план площадки', en: 'site plan', cls: 'doc--wide' },
         { src: 'img/voltna-moodboard.webp', ru: 'мудборд', en: 'moodboard' },
         { src: 'img/voltna-budget-slide.webp', ru: 'смета', en: 'budget' }
       ],
