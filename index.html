@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Анна Ивановская — портфолио</title>
-  <meta name="description" content="Research · Координация · Креативные индустрии">
+  <meta name="description" content="Исследования · Координация · Креативные индустрии">
   <meta property="og:title" content="Анна Ивановская — портфолио">
-  <meta property="og:description" content="Research · Координация · Креативные индустрии">
+  <meta property="og:description" content="Исследования · Координация · Креативные индустрии">
+  <meta property="og:image" content="https://ivanovskaiaaanna.github.io/cv/img/portrait-color.webp">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#EDEDE8">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%237A8B12'/%3E%3C/svg%3E">
@@ -38,7 +39,7 @@
         <a href="#cases" data-nav="cases">кейсы</a>
         <a href="#contact" data-nav="contact">контакт</a>
       </nav>
-      <div class="lang" role="group" aria-label="Language">
+      <div class="lang" role="group" aria-label="Язык">
         <button type="button" data-lang="ru" aria-pressed="true">RU</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
@@ -48,21 +49,26 @@
   <main id="main">
     <!-- 1. Первый экран -->
     <section class="hero wrap" id="top">
+      <figure class="hero__photo">
+        <div class="polaroid polaroid--back">
+          <div class="polaroid__img">
+            <img src="img/portrait-bw.webp" alt="" width="1200" height="1510" data-fallback="keep">
+          </div>
+        </div>
+        <div class="polaroid polaroid--hero">
+          <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+          <div class="polaroid__img">
+            <img src="img/portrait-color.webp" alt="" width="1200" height="1600" fetchpriority="high" data-fallback="keep">
+          </div>
+        </div>
+        <figcaption class="note note--hero" id="hero-note"></figcaption>
+      </figure>
       <div class="hero__text">
         <p class="eyebrow" id="hero-eyebrow"></p>
         <h1 class="hero__name" id="hero-name"></h1>
         <p class="hero__pos" id="hero-pos"></p>
         <p class="facts" id="hero-facts"></p>
       </div>
-      <figure class="hero__photo">
-        <div class="polaroid polaroid--hero">
-          <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
-          <div class="polaroid__img">
-            <img src="img/portrait-bw.webp" alt="" width="900" height="1125" fetchpriority="high" data-fallback="keep">
-          </div>
-        </div>
-        <figcaption class="note note--hero" id="hero-note"></figcaption>
-      </figure>
     </section>
 
     <!-- 2. Обо мне -->
@@ -73,7 +79,7 @@
         <figure class="about__photo">
           <div class="polaroid polaroid--small">
             <div class="polaroid__img">
-              <img src="img/portrait-street.webp" alt="" width="800" height="1000" loading="lazy">
+              <img src="img/portrait-street.webp" alt="" width="1000" height="1333" loading="lazy">
             </div>
           </div>
         </figure>
@@ -117,7 +123,7 @@
       <div class="case__bar-inner wrap">
         <button type="button" class="case__back" id="case-back"></button>
         <span class="case__count" id="case-count"></span>
-        <div class="lang lang--case" role="group" aria-label="Language">
+        <div class="lang lang--case" role="group" aria-label="Язык">
           <button type="button" data-lang="ru" aria-pressed="true">RU</button>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>

@@ -57,6 +57,9 @@
     $$('[data-lang]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
     });
+    $$('.lang').forEach(function (g) { g.setAttribute('aria-label', ui.langLabel); });
+    $('.top__nav').setAttribute('aria-label', ui.navLabel);
+    $('#case-close').setAttribute('aria-label', ui.close);
 
     $('#hero-eyebrow').textContent = h.eyebrow;
     $('#hero-name').innerHTML = h.name.split(' ').map(function (w) { return '<span>' + esc(w) + '</span>'; }).join(' ');
@@ -65,8 +68,7 @@
     });
     $('#hero-facts').innerHTML = h.facts.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('<i aria-hidden="true">·</i>');
     $('#hero-note').innerHTML = '<svg class="note__arrow" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 30 C 20 34, 40 26, 52 10 M52 10 L 42 12 M52 10 L 54 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' + esc(ui.note);
-    $('.hero__photo img').alt = h.name;
-    $('.about__photo img').alt = h.name;
+    $$('.hero__photo img, .about__photo img').forEach(function (im) { im.alt = h.name; });
 
     $('#about-text').innerHTML = C.about[lang].map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
 
@@ -92,15 +94,17 @@
     $('#timeline').innerHTML = C.experience.map(function (e) {
       var t = e[lang];
       return '<li class="tl reveal"><span class="mono tl__when">' + esc(e.when[lang]) + '</span>' +
-        '<p class="tl__what">' + (t.b ? '<b>' + esc(t.b) + '</b>' : '') + esc(t.t) + '</p></li>';
+        '<div class="tl__what"><p>' + (t.b ? '<b>' + esc(t.b) + '</b>' : '') + esc(t.t) + '</p>' +
+        (t.list ? '<ul class="tl__list">' + t.list.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '') +
+        '</div></li>';
     }).join('');
 
     $('#tags').innerHTML = C.interests[lang].map(function (t) { return '<li class="pill pill--lg">' + esc(t) + '</li>'; }).join('');
 
-    var ct = C.contact, rows = [];
-    rows.push(contactRow('Email', ct.email, 'mailto:' + ct.email));
-    if (ct.telegram) rows.push(contactRow('Telegram', '@' + ct.telegram, 'https://t.me/' + ct.telegram));
-    if (ct.linkedin) rows.push(contactRow('LinkedIn', ct.linkedin.replace(/^https?:\/\/(www\.)?/, ''), ct.linkedin, true));
+    var ct = C.contact, cl = ui.contactLabels, rows = [];
+    rows.push(contactRow(cl.email, ct.email, 'mailto:' + ct.email));
+    if (ct.telegram) rows.push(contactRow(cl.telegram, '@' + ct.telegram, 'https://t.me/' + ct.telegram));
+    if (ct.phone) rows.push(contactRow(cl.phone, ct.phone[lang], ct.phone.href));
     $('#contact-list').innerHTML = rows.join('');
 
     $$('img').forEach(watchImg);
@@ -150,16 +154,30 @@
     h += '<p class="cs-line">' + esc(t.line) + '</p>';
     h += '</header>';
 
-    h += '<div class="cs-grid">';
-    h += '<aside class="passport"><dl>' + c.facts[lang].map(function (f) {
+    h += '<div class="cs-grid' + (c.facts ? '' : ' cs-grid--single') + '">';
+    if (c.facts) h += '<aside class="passport"><dl>' + c.facts[lang].map(function (f) {
       return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>';
     }).join('') + '</dl></aside>';
 
     h += '<div class="cs-main">';
-    if (c.hero) h += '<figure class="cs-hero" data-photo>' + img(c.hero, t.title) + '</figure>';
+    if (c.hero) {
+      var heroImg = img(c.hero, t.title);
+      h += '<figure class="cs-hero' + (c.heroLink ? ' cs-hero--doc' : '') + '" data-photo>' +
+        (c.heroLink ? '<a href="' + esc(c.hero) + '" target="_blank" rel="noopener">' + heroImg + '</a>' : heroImg) + '</figure>';
+    }
 
-    h += section(ui.brief, '<p>' + esc(c.brief[lang]) + '</p>');
-    h += section(ui.did, '<ul class="list">' + c.did[lang].map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>');
+    if (c.intro) h += '<p class="cs-intro">' + esc(c.intro[lang]) + '</p>';
+    if (c.board) {
+      h += '<div class="board" role="table"><div class="board__row board__row--head" role="row">' +
+        ui.board.map(function (x) { return '<span role="columnheader">' + esc(x) + '</span>'; }).join('') + '</div>' +
+        c.board.map(function (r) {
+          var x = r[lang];
+          return '<div class="board__row" role="row"><span class="board__dest" role="cell">' + esc(x[0]) + '</span>' +
+            '<span class="board__fmt" role="cell">' + esc(x[1]) + '</span><span class="board__who" role="cell">' + esc(x[2]) + '</span></div>';
+        }).join('') + '</div>';
+    }
+    if (c.brief) h += section(ui.brief, '<p>' + esc(c.brief[lang]) + '</p>');
+    if (c.did) h += section(ui.did, '<ul class="list">' + c.did[lang].map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>');
     if (c.outcome) h += section(ui.outcome, '<p class="outcome">' + esc(c.outcome[lang]) + '</p>');
 
     if (c.budget) {
@@ -171,6 +189,17 @@
     }
 
     h += '<p class="medium"><span>' + esc(ui.medium) + ' /</span> ' + esc(c.medium[lang]) + '</p>';
+
+    if (c.link) {
+      h += '<p class="cs-link"><a class="btn btn--accent" href="' + esc(c.link.href) + '" target="_blank" rel="noopener">' +
+        esc(c.link[lang]) + ' <span aria-hidden="true">↗</span></a><span class="mono">' + esc(c.link.note[lang]) + '</span></p>';
+    }
+    if (c.docs) {
+      h += '<div class="docs">' + c.docs.map(function (d) {
+        return '<figure class="doc ' + (d.cls || '') + '" data-photo><a href="' + esc(d.src) + '" target="_blank" rel="noopener">' +
+          img(d.src, d[lang]) + '</a><figcaption class="mono">' + esc(d[lang]) + '</figcaption></figure>';
+      }).join('') + '</div>';
+    }
 
     if (c.beforeAfter) {
       h += '<div class="ba">' + c.beforeAfter.map(function (p, k) {

@@ -99,7 +99,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .clip { position: absolute; top: -26px; left: 50%; width: 22px; height: 60px; transform: translateX(-50%) rotate(4deg); z-index: 2; }
 
 /* ---------- 1. Первый экран ---------- */
-.hero { padding-top: 28px; display: grid; gap: 40px; }
+.hero { padding-top: 8px; display: grid; gap: 22px; }
 .hero__name {
   font: 800 clamp(40px, 11.5vw, 96px)/.98 var(--f-head);
   letter-spacing: -.035em; margin: 0 0 22px;
@@ -110,15 +110,17 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .marked { position: relative; white-space: nowrap; display: inline-block; }
 .marked .oval { position: absolute; left: -12%; top: -32%; width: 124%; height: 164%; color: var(--accent); pointer-events: none; overflow: visible; }
 
-.hero__photo { position: relative; margin: 8px auto 0; width: min(78%, 330px); }
-.polaroid--hero { transform: rotate(-3deg); }
-.note--hero { position: absolute; right: -10px; bottom: -34px; transform: rotate(-4deg); display: flex; align-items: flex-end; gap: 4px; }
-.note__arrow { width: 44px; height: 30px; transform: scaleX(-1) rotate(-20deg); margin-bottom: 14px; order: -1; }
+.hero__photo { position: relative; margin: 34px 0 28px; width: min(100%, 360px); padding-right: 22%; justify-self: center; }
+.polaroid--hero { position: relative; z-index: 2; transform: rotate(-3deg); }
+.polaroid--hero .polaroid__img { aspect-ratio: 3 / 4; }
+.polaroid--back { position: absolute; z-index: 1; right: 0; top: 18%; width: 50%; padding: 7px 7px 30px; transform: rotate(5deg); }
+.note--hero { position: absolute; z-index: 3; right: 2%; bottom: -30px; transform: rotate(-5deg); display: flex; align-items: flex-end; gap: 4px; font-size: 25px; }
+.note__arrow { width: 40px; height: 28px; transform: scaleX(-1) rotate(-20deg); margin-bottom: 14px; order: -1; }
 
 /* ---------- 2. Обо мне ---------- */
 .about__grid { display: grid; gap: 32px; }
 .about__text p { margin: 0 0 16px; font-size: 17px; max-width: 62ch; }
-.about__photo { margin: 0; width: min(56%, 240px); justify-self: end; }
+.about__photo { margin: 0; width: min(74%, 300px); justify-self: center; }
 .polaroid--small { transform: rotate(2.5deg); padding-bottom: 30px; }
 .is-missing { display: none !important; }
 
@@ -156,7 +158,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .tl:last-child::before { display: none; }
 .tl::after { content: ''; position: absolute; left: 0; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
 .tl__when { color: var(--ink-2); }
-.tl__what { margin: 0; max-width: 64ch; }
+.tl__what { max-width: 64ch; }
+.tl__what p { margin: 0; }
+.tl__list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; color: var(--ink-2); font-size: 15px; }
+.tl__list li { position: relative; padding-left: 18px; }
+.tl__list li::before { content: ''; position: absolute; left: 0; top: .75em; width: 9px; height: 1px; background: var(--accent); }
 .tl__what b { font-weight: 700; }
 
 /* ---------- 6. Интересы ---------- */
@@ -224,6 +230,31 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .cs-hero { margin: 0 0 30px; background: #dcdcd5; }
 .cs-hero img { width: 100%; }
+.cs-hero--doc { background: var(--white); padding: 8px; border: 1px solid var(--line); }
+.cs-hero a, .doc a { display: block; cursor: zoom-in; }
+
+.cs-intro { font-size: 18px; margin: 0 0 24px; max-width: 56ch; }
+.cs-link { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: -12px 0 32px; }
+.cs-link .mono { color: var(--ink-2); font-size: 12px; }
+.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn--accent { background: var(--accent); border-color: var(--accent); color: var(--white); }
+.btn--accent:hover { background: var(--ink); border-color: var(--ink); }
+
+/* рабочие материалы — документы, в цвете */
+.docs { display: grid; gap: 22px; }
+.doc { margin: 0; background: var(--white); border: 1px solid var(--line); padding: 8px; }
+.doc figcaption { color: var(--ink-2); padding: 8px 2px 0; }
+.doc--logo img { max-height: 120px; width: auto; margin: 10px auto; }
+
+/* табло отправлений */
+.board { background: var(--ink); color: var(--paper); font-family: var(--f-mono); padding: 6px 16px; margin: 0 0 32px; }
+.board__row { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 14px 0; border-bottom: 1px dashed rgba(237, 237, 232, .2); }
+.board__row:last-child { border-bottom: 0; }
+.board__row--head { display: none; }
+.board__dest { text-transform: uppercase; letter-spacing: .06em; font-size: 15px; color: var(--accent-soft); }
+.board__dest::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin: 0 10px 2px 0; }
+.board__fmt, .board__who { font-size: 13px; color: rgba(237, 237, 232, .78); padding-left: 17px; }
+.board__who { color: rgba(237, 237, 232, .55); }
 .cs-poster { margin: 24px 0 0; max-width: 420px; background: var(--white); padding: 10px; border: 1px solid var(--line); }
 
 /* было → стало */
@@ -282,6 +313,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .contact__label { grid-column: auto; }
   .ba { gap: 18px; }
   .polaroid--ba .note { font-size: 24px; }
+  .board { padding: 6px 22px; }
+  .board__row { grid-template-columns: 1.1fr 1.5fr 1fr; gap: 16px; align-items: baseline; }
+  .board__row--head { display: grid; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: rgba(237, 237, 232, .5); padding: 12px 0 10px; }
+  .board__fmt, .board__who { padding-left: 0; }
+  .docs { grid-template-columns: 1fr 1fr; }
+  .doc--logo { grid-column: 1 / -1; }
 }
 
 /* ---------- Десктоп ---------- */
@@ -291,14 +328,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .section { padding-top: 120px; }
   .h2 { margin-bottom: 40px; }
 
-  .hero { grid-template-columns: 1.35fr 1fr; align-items: center; min-height: calc(88vh - var(--header)); padding-top: 24px; gap: 56px; }
+  .hero { grid-template-columns: 1fr 1.25fr; align-items: center; min-height: calc(88vh - var(--header)); padding-top: 24px; gap: 64px; }
+  .hero__name { font-size: clamp(48px, 5.6vw, 84px); }
   .hero__pos { font-size: 24px; }
-  .hero__photo { width: 100%; max-width: 380px; justify-self: center; }
-  .note--hero { right: -40px; bottom: -40px; font-size: 32px; }
+  .hero__photo { width: 100%; max-width: 440px; margin: 40px 0; }
+  .note--hero { right: -4%; bottom: -44px; font-size: 32px; }
 
   .about__grid { grid-template-columns: 1.6fr 1fr; align-items: start; gap: 64px; }
   .about__text p { font-size: 19px; }
-  .about__photo { justify-self: center; width: 260px; margin-top: 8px; }
+  .about__photo { justify-self: center; width: 320px; margin-top: 8px; }
 
   .what { grid-template-columns: repeat(4, 1fr); column-gap: 28px; }
   .what__item { grid-template-columns: 1fr; padding-top: 20px; }
@@ -312,6 +350,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .cs-grid { grid-template-columns: 1fr 320px; gap: 64px; }
   .passport { grid-column: 2; grid-row: 1; position: sticky; top: 24px; }
   .cs-main { grid-column: 1; grid-row: 1; }
+  .cs-grid--single { grid-template-columns: minmax(0, 820px); }
   .cs-h { font-size: 22px; }
   .ba { max-width: 620px; }
   .film { margin-left: 0; }
