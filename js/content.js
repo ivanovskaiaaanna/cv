@@ -96,8 +96,8 @@ window.CONTENT = {
       en: { t: 'Coordination', d: 'I keep every party of a project on track at once: client, vendors, contracts, deadlines.' }
     },
     {
-      ru: { t: 'Считаю', d: 'Сметы, методика расчёта стоимости на человека, бюджеты проектов до 4 млн ₽.' },
-      en: { t: 'Budgeting', d: 'Budgets, per-person pricing methods, project budgets of up to RUB 4M.' }
+      ru: { t: 'Считаю', d: 'Сметы, методика расчёта стоимости на человека, бюджеты проектов до 10\u00a0млн\u00a0₽.' },
+      en: { t: 'Budgeting', d: 'Budgets, per-person pricing methods, project budgets of up to RUB 10M.' }
     },
     {
       ru: { t: 'Упаковываю', d: 'Презентации, коммерческие предложения, тексты, карты и айдентика проектов.' },
@@ -109,15 +109,15 @@ window.CONTENT = {
     {
       slug: 'altai',
       card: {
-        ru: { title: 'Корпоративный выезд на Алтай', period: 'апр–ноя 2026', type: 'Путешествие', line: '9 участников, 6 дней, бюджет 4 млн ₽' },
-        en: { title: 'Corporate retreat in Altai', period: 'Apr–Nov 2026', type: 'Travel', line: '9 guests, 6 days, RUB 4M budget' }
+        ru: { title: 'Корпоративный выезд на Алтай', period: 'апр–ноя 2026', type: 'Путешествие', line: '9 участников, 6 дней, бюджет ~3,3\u00a0млн\u00a0₽' },
+        en: { title: 'Corporate retreat in Altai', period: 'Apr–Nov 2026', type: 'Travel', line: '9 guests, 6 days, ~RUB 3.3M budget' }
       },
       facts: {
         ru: [
           ['Период', 'подготовка с апреля 2026, выезд 30.10–04.11.2026'],
           ['Место', 'Манжерок, Горный Алтай'],
           ['Масштаб', '9 участников, 6 дней'],
-          ['Бюджет', '4 млн ₽'],
+          ['Бюджет', '~3,3 млн ₽ (≈366 тыс. на человека)'],
           ['Роль', 'координатор проекта'],
           ['Статус', 'подтверждён, финализация договоров']
         ],
@@ -125,7 +125,7 @@ window.CONTENT = {
           ['Period', 'preparation from April 2026, trip 30 Oct – 4 Nov 2026'],
           ['Place', 'Manzherok, Altai Mountains'],
           ['Scale', '9 guests, 6 days'],
-          ['Budget', 'RUB 4M'],
+          ['Budget', '~RUB 3.3M (≈RUB 366K per person)'],
           ['Role', 'project coordinator'],
           ['Status', 'confirmed, contracts being finalised']
         ]
@@ -154,14 +154,29 @@ window.CONTENT = {
         ru: 'Программа и смета согласованы с клиентом, выезд подтверждён, идёт подписание договоров с подрядчиками.',
         en: 'The client approved the program and budget; the trip is confirmed and vendor contracts are being signed.'
       },
+      budget: [
+        { ru: 'Проживание', en: 'Accommodation', v: 1171, label: { ru: '~1\u00a0171 тыс. ₽', en: '~RUB 1,171K' } },
+        { ru: 'Питание', en: 'Catering', v: 478, label: { ru: '~478 тыс. ₽', en: '~RUB 478K' } },
+        { ru: 'Активности', en: 'Activities', v: 451, label: { ru: '~451 тыс. ₽', en: '~RUB 451K' } },
+        { ru: 'Команда и сопровождение', en: 'Team and guides', v: 410, label: { ru: '~410 тыс. ₽', en: '~RUB 410K' } },
+        { ru: 'Трансфер', en: 'Transfers', v: 84, label: { ru: '~84 тыс. ₽', en: '~RUB 84K' } }
+      ],
+      // строки под диаграммой; total — выделить
+      budgetRows: [
+        { ru: 'Организация', en: 'Organisation fee', label: { ru: '~426 тыс. ₽', en: '~RUB 426K' } },
+        { ru: 'Налог', en: 'Tax', label: { ru: '~272 тыс. ₽', en: '~RUB 272K' } },
+        { ru: 'Итого', en: 'Total', label: { ru: '~3\u00a0292 тыс. ₽', en: '~RUB 3,292K' }, total: true },
+        { ru: 'На человека', en: 'Per person', label: { ru: '~366 тыс. ₽', en: '~RUB 366K' } }
+      ],
+      // budgetNote: { ru: '', en: '' } — подпись под диаграммой, ждёт текста от Анны
       medium: { ru: 'программа, смета, логистика, подрядчики', en: 'itinerary, budget, logistics, vendors' }
     },
 
     {
       slug: 'vseinstrumenti',
       card: {
-        ru: { title: 'Корпоратив «ВсеИнструменты.ру»', period: '2026', type: 'Мероприятие', line: '100 гостей, Москва, ~950 тыс. ₽' },
-        en: { title: 'VseInstrumenti.ru corporate party', period: '2026', type: 'Event', line: '100 guests, Moscow, ~RUB 950K' }
+        ru: { title: 'Корпоратив «Все\u00adИнструменты.ру»', period: '2026', type: 'Мероприятие', line: '100 гостей, Москва, ~950 тыс. ₽' },
+        en: { title: 'Vse\u00adInstrumenti.ru corporate party', period: '2026', type: 'Event', line: '100 guests, Moscow, ~RUB 950K' }
       },
       facts: {
         ru: [

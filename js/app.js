@@ -185,7 +185,11 @@
       h += section(ui.budget, '<ul class="bars">' + c.budget.map(function (b) {
         return '<li><span class="bars__label">' + esc(b[lang]) + '</span><span class="mono bars__val">' + esc(b.label[lang]) + '</span>' +
           '<span class="bars__track"><span class="bars__fill" style="width:' + (b.v / max * 100).toFixed(1) + '%"></span></span></li>';
-      }).join('') + '</ul>');
+      }).join('') + '</ul>' +
+      (c.budgetRows ? '<dl class="sums">' + c.budgetRows.map(function (r) {
+        return '<div' + (r.total ? ' class="sums__total"' : '') + '><dt>' + esc(r[lang]) + '</dt><dd>' + esc(r.label[lang]) + '</dd></div>';
+      }).join('') + '</dl>' : '') +
+      (c.budgetNote && c.budgetNote[lang] ? '<p class="sums__note">' + esc(c.budgetNote[lang]) + '</p>' : ''));
     }
 
     h += '<p class="medium"><span>' + esc(ui.medium) + ' /</span> ' + esc(c.medium[lang]) + '</p>';
