@@ -1,5 +1,5 @@
 // Все тексты сайта. Источник: anna-site-content.md, версия 2 (дословно).
-// Правило: в русской версии — только кириллица (исключения: SQL, Excel, Python, Yandex DataLens, почта, ник в Телеграме, переключатель RU / EN).
+// Правило: в русской версии — только кириллица (исключения: SQL, Excel, Python, Yandex DataLens, ЕГЭLAND, почта, ник в Телеграме, переключатель RU / EN).
 // «В2+» в русской версии набрано кириллической «В».
 window.CONTENT = {
   ui: {
@@ -109,6 +109,67 @@ window.CONTENT = {
 
   cases: [
     {
+      slug: 'camp',
+      thumb: 'img/camp-tipi.webp',
+      card: {
+        ru: { title: 'Горный лагерь на Алтае', period: 'мар–авг 2026', type: 'Путешествие', line: 'Лагерь с палатками-типи в дикой части Алтая: несколько заездов за лето' },
+        en: { title: 'Mountain camp in Altai', period: 'Mar–Aug 2026', type: 'Travel', line: 'A tipi camp in the wild Altai: several groups over one summer' }
+      },
+      facts: {
+        ru: [
+          ['Период', 'март–август 2026'],
+          ['Место', 'Горный Алтай, территория отеля «Белая Гора»'],
+          ['Формат', 'лагерь с палатками-типи, программа на 7 дней, 10 активностей'],
+          ['Масштаб', 'несколько заездов за лето, в том числе корпоратив школы подготовки к ЕГЭ «ЕГЭLAND»'],
+          ['Роль', 'вела проект целиком'],
+          ['Статус', 'проведено']
+        ],
+        en: [
+          ['Period', 'March–August 2026'],
+          ['Place', 'Altai Mountains, grounds of the Belaya Gora hotel'],
+          ['Format', 'tipi camp, 7-day program, 10 activities'],
+          ['Scale', 'several groups over the summer, including a corporate group from the exam-prep school EGELAND'],
+          ['Role', 'ran the project end to end'],
+          ['Status', 'delivered']
+        ]
+      },
+      brief: {
+        ru: 'Запустить лагерь с нуля в дикой части Алтая: обустроить территорию, собрать программу и местных партнёров и не выйти за рамки сметы.',
+        en: 'Launch a camp from scratch in a wild part of Altai: set up the grounds, build the program and a network of local partners, and stay within budget.'
+      },
+      did: {
+        ru: [
+          'Держала связь с архитекторами, которые отстраивали лагерь с палатками-типи на территории отеля.',
+          'Нашла подрядчиков и полностью составила программу на семь дней.',
+          'Дистанционно договорилась с местными партнёрами: коневодами, владельцами музея старообрядчества и Дома Рериха, организаторами рафтинга, инструктором по йоге и травницей, которая проводила для гостей мастер-класс по местным травам.',
+          'Следила за сметой, чтобы расходы не разрослись и проект не ушёл в минус.'
+        ],
+        en: [
+          'Liaised with the architects who built the tipi camp on the hotel grounds.',
+          'Found vendors and wrote the full seven-day program.',
+          'Negotiated remotely with local partners: horse breeders, the owners of an Old Believers museum and the Roerich House, rafting organisers, a yoga instructor and a herbalist who ran a workshop on local herbs for guests.',
+          'Kept the budget under control so costs did not grow and the project stayed profitable.'
+        ]
+      },
+      outcome: {
+        ru: 'За лето в лагере прошло несколько заездов, в том числе корпоратив школы «ЕГЭLAND».',
+        en: 'The camp hosted several groups over the summer, including a corporate group from the EGELAND school.'
+      },
+      hero: 'img/camp-tipi.webp',
+      gallery: [
+        { src: 'img/camp-dinner.webp', ru: 'ужин в поле', en: 'dinner in the field' },
+        { src: 'img/camp-tea-table.webp', ru: 'чайный стол', en: 'tea table' },
+        { src: 'img/camp-herbs.webp', ru: 'мастер-класс травницы', en: 'herbalist\'s workshop' },
+        { src: 'img/camp-horses.webp', ru: 'конная прогулка', en: 'horse ride' },
+        { src: 'img/camp-rafting.webp', ru: 'рафтинг', en: 'rafting' },
+        { src: 'img/camp-yoga.webp', ru: 'йога', en: 'yoga' },
+        { src: 'img/camp-hike.webp', ru: 'поход к леднику', en: 'hike to the glacier' },
+        { src: 'img/camp-cinema.webp', ru: 'кинозона', en: 'outdoor cinema' }
+      ],
+      medium: { ru: 'программа, подрядчики, местные партнёры, смета', en: 'program, vendors, local partners, budget' }
+    },
+
+    {
       slug: 'altai',
       card: {
         ru: { title: 'Корпоративный выезд на Алтай', period: 'апр–ноя 2026', type: 'Путешествие', line: '9 участников, 6 дней, бюджет ~3,3\u00a0млн\u00a0₽' },
@@ -119,7 +180,7 @@ window.CONTENT = {
           ['Период', 'подготовка с апреля 2026, выезд 30.10–04.11.2026'],
           ['Место', 'Манжерок, Горный Алтай'],
           ['Масштаб', '9 участников, 6 дней'],
-          ['Бюджет', '~3,3 млн ₽ (≈366 тыс. на человека)'],
+          ['Бюджет', '~3,3 млн ₽ (≈ 366 тыс. ₽ на человека)'],
           ['Роль', 'координатор проекта'],
           ['Статус', 'подтверждён, финализация договоров']
         ],
@@ -127,7 +188,7 @@ window.CONTENT = {
           ['Period', 'preparation from April 2026, trip 30 Oct – 4 Nov 2026'],
           ['Place', 'Manzherok, Altai Mountains'],
           ['Scale', '9 guests, 6 days'],
-          ['Budget', '~RUB 3.3M (≈RUB 366K per person)'],
+          ['Budget', '~RUB 3.3M (≈ RUB 366K per person)'],
           ['Role', 'project coordinator'],
           ['Status', 'confirmed, contracts being finalised']
         ]
@@ -160,17 +221,21 @@ window.CONTENT = {
         { ru: 'Проживание', en: 'Accommodation', v: 1171, label: { ru: '~1\u00a0171 тыс. ₽', en: '~RUB 1,171K' } },
         { ru: 'Питание', en: 'Catering', v: 478, label: { ru: '~478 тыс. ₽', en: '~RUB 478K' } },
         { ru: 'Активности', en: 'Activities', v: 451, label: { ru: '~451 тыс. ₽', en: '~RUB 451K' } },
-        { ru: 'Команда и сопровождение', en: 'Team and guides', v: 410, label: { ru: '~410 тыс. ₽', en: '~RUB 410K' } },
+        { ru: 'Команда и сопровождение', en: 'Team and support', v: 410, label: { ru: '~410 тыс. ₽', en: '~RUB 410K' } },
         { ru: 'Трансфер', en: 'Transfers', v: 84, label: { ru: '~84 тыс. ₽', en: '~RUB 84K' } }
       ],
       // строки под диаграммой; total — выделить
       budgetRows: [
+        { ru: 'Итого без налога и организации', en: 'Subtotal', label: { ru: '~2\u00a0594 тыс. ₽', en: '~RUB 2,594K' } },
         { ru: 'Организация', en: 'Organisation fee', label: { ru: '~426 тыс. ₽', en: '~RUB 426K' } },
         { ru: 'Налог', en: 'Tax', label: { ru: '~272 тыс. ₽', en: '~RUB 272K' } },
         { ru: 'Итого', en: 'Total', label: { ru: '~3\u00a0292 тыс. ₽', en: '~RUB 3,292K' }, total: true },
         { ru: 'На человека', en: 'Per person', label: { ru: '~366 тыс. ₽', en: '~RUB 366K' } }
       ],
-      // budgetNote: { ru: '', en: '' } — подпись под диаграммой, ждёт текста от Анны
+      budgetNote: {
+        ru: 'Общие расходы делятся поровну на всех участников, проживание считается по типу номера, сверху организационный сбор и налог.',
+        en: 'Shared costs are split equally, accommodation is charged by room type, then the organisation fee and tax are added.'
+      },
       medium: { ru: 'программа, смета, логистика, подрядчики', en: 'itinerary, budget, logistics, vendors' }
     },
 
@@ -388,6 +453,7 @@ window.CONTENT = {
 
     {
       slug: 'travel',
+      wide: true,
       card: {
         ru: { title: 'Программы путешествий', period: '2026', type: 'Путешествия', line: 'Шесть форматов поездок: от школьной группы в Японию до банного тура' },
         en: { title: 'Travel programs', period: '2026', type: 'Travel', line: 'Six trip formats, from a school group in Japan to a bathhouse tour' }

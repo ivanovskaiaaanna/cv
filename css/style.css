@@ -151,6 +151,24 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .card:hover .card__arrow { transform: translateX(4px); }
 .card__line { padding-right: 28px; }
 
+/* карточка-табло на всю ширину */
+.cards__wide { grid-column: 1 / -1; }
+.card--board { background: var(--ink); border-color: var(--ink); color: var(--paper); display: grid; gap: 18px; }
+.card--board:hover { border-color: var(--accent); }
+.card--board .card__meta { color: rgba(237, 237, 232, .6); }
+.card--board .card__line { color: rgba(237, 237, 232, .72); }
+.card--board__head { display: flex; flex-direction: column; }
+.card--board__rows { display: grid; font-family: var(--f-mono); border-top: 1px dashed rgba(237, 237, 232, .25); }
+.card--board__row { display: grid; gap: 2px; padding: 10px 0; border-bottom: 1px dashed rgba(237, 237, 232, .2); }
+.card--board__row:last-child { border-bottom: 0; padding-bottom: 28px; }
+.card--board .board__dest { font-size: 13px; }
+.card--board .board__fmt { font-size: 12px; }
+
+/* галерея кейса */
+.gallery { columns: 2; column-gap: 10px; margin: 8px 0 0; }
+.gallery__item { break-inside: avoid; margin: 0 0 10px; background: var(--white); padding: 6px; border: 1px solid var(--line); }
+.gallery__item figcaption { color: var(--ink-2); font-size: 11px; padding: 6px 2px 0; }
+
 /* ---------- 5. Опыт ---------- */
 .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
 .tl { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 0 0 22px 22px; position: relative; }
@@ -234,7 +252,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .sums dd { margin: 0; }
 .sums__total { border-bottom: 1px solid var(--ink) !important; }
 .sums__total dt, .sums__total dd { color: var(--ink); font-weight: 700; }
-.sums__note { margin: 12px 0 0; font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); max-width: 560px; }
+.cs-sec .sums__note { margin: 12px 0 0; font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); max-width: 560px; }
 
 .cs-hero { margin: 0 0 30px; background: #dcdcd5; }
 .cs-hero img { width: 100%; }
@@ -298,7 +316,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .cs-nav__link { display: grid; gap: 6px; text-decoration: none; padding: 12px; background: var(--white); border: 1px solid var(--line); transition: border-color .2s; }
 .cs-nav__link:hover { border-color: var(--ink); }
 .cs-nav__link .mono { color: var(--accent); font-size: 12px; }
-.cs-nav__link b { font: 700 14px/1.25 var(--f-head); overflow-wrap: anywhere; hyphens: auto; }
+.cs-nav__link b { font: 700 12.5px/1.25 var(--f-head); overflow-wrap: break-word; hyphens: auto; }
 .cs-nav__link--next { text-align: right; }
 
 /* тост */
@@ -325,6 +343,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .ba { gap: 18px; }
   .polaroid--ba .note { font-size: 24px; }
   .board { padding: 6px 22px; }
+  .cs-nav__link b { font-size: 14px; }
   .board__row { grid-template-columns: 1.1fr 1.5fr 1fr; gap: 16px; align-items: baseline; }
   .board__row--head { display: grid; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: rgba(237, 237, 232, .5); padding: 12px 0 10px; }
   .board__fmt, .board__who { padding-left: 0; }
@@ -355,6 +374,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .what__item p { grid-column: 1; }
 
   .cards { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card--board { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); column-gap: 48px; padding: 26px 28px 28px; }
+  .card--board__rows { border-top: 0; align-self: start; }
+  .card--board__row { grid-template-columns: 1fr 1.4fr; gap: 16px; padding: 9px 0; }
+  .card--board__row:first-child { padding-top: 0; }
+  .card--board__row:last-child { padding-bottom: 0; }
+  .gallery { columns: 3; column-gap: 14px; }
+  .gallery__item { margin-bottom: 14px; }
   .card { padding: 22px 22px 24px; }
 
   .case__body { padding-top: 48px; }

@@ -80,6 +80,7 @@
 
     $('#cards').innerHTML = C.cases.map(function (c, i) {
       var t = c.card[lang];
+      if (c.wide && c.board) return boardCard(c, i, t);
       return '<li class="reveal"><a class="card" href="#' + c.slug + '" data-case="' + c.slug + '">' +
         (c.thumb ? '<span class="card__thumb' + (c.thumbFit ? ' card__thumb--' + c.thumbFit : '') + '">' + img(c.thumb, '').replace('loading="lazy"', 'loading="eager"') + '</span>' : '') +
         '<span class="card__meta"><span class="mono card__n">' + pad(i + 1) + '</span>' +
@@ -109,6 +110,24 @@
 
     $$('img').forEach(watchImg);
     observeReveal();
+  }
+
+  // Карточка-табло на всю ширину (программы путешествий)
+  function boardCard(c, i, t) {
+    return '<li class="reveal cards__wide"><a class="card card--board" href="#' + c.slug + '" data-case="' + c.slug + '">' +
+      '<span class="card--board__head">' +
+        '<span class="card__meta"><span class="mono card__n">' + pad(i + 1) + '</span>' +
+        (t.period ? '<span class="mono">' + esc(t.period) + '</span>' : '') +
+        '<span class="pill">' + esc(t.type) + '</span></span>' +
+        '<span class="card__title">' + esc(t.title) + '</span>' +
+        '<span class="card__line">' + esc(t.line) + '</span>' +
+      '</span>' +
+      '<span class="card--board__rows">' + c.board.map(function (r) {
+        var x = r[lang];
+        return '<span class="card--board__row"><span class="board__dest">' + esc(x[0]) + '</span><span class="board__fmt">' + esc(x[1]) + '</span></span>';
+      }).join('') + '</span>' +
+      '<span class="card__arrow" aria-hidden="true">→</span>' +
+      '</a></li>';
   }
 
   function contactRow(label, value, href, noCopy, action) {
@@ -223,6 +242,11 @@
     }
 
     if (c.poster) h += '<figure class="cs-poster" data-photo>' + img(c.poster, t.title) + '</figure>';
+    if (c.gallery) {
+      h += '<div class="gallery">' + c.gallery.map(function (g) {
+        return '<figure class="gallery__item" data-photo>' + img(g.src, g[lang]) + '<figcaption class="mono">' + esc(g[lang]) + '</figcaption></figure>';
+      }).join('') + '</div>';
+    }
     h += '</div></div>';
 
     h += '<nav class="cs-nav">' +
