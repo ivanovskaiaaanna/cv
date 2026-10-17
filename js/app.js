@@ -103,7 +103,7 @@
 
     var ct = C.contact, cl = ui.contactLabels, rows = [];
     rows.push(contactRow(cl.email, ct.email, 'mailto:' + ct.email));
-    if (ct.telegram) rows.push(contactRow(cl.telegram, '@' + ct.telegram, 'https://t.me/' + ct.telegram));
+    if (ct.telegram) rows.push(contactRow(cl.telegram, '@' + ct.telegram, 'https://t.me/' + ct.telegram, false, ui.write));
     if (ct.phone) rows.push(contactRow(cl.phone, ct.phone[lang], ct.phone.href));
     $('#contact-list').innerHTML = rows.join('');
 
@@ -111,11 +111,13 @@
     observeReveal();
   }
 
-  function contactRow(label, value, href, noCopy) {
+  function contactRow(label, value, href, noCopy, action) {
     return '<li class="contact__row"><span class="mono contact__label">' + label + '</span>' +
       '<a class="contact__value" href="' + esc(href) + '"' + (href.indexOf('http') === 0 ? ' target="_blank" rel="noopener"' : '') + '>' + esc(value).replace('@', '<wbr>@') + '</a>' +
+      '<span class="contact__actions">' +
+      (action ? '<a class="btn btn--accent" href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(action) + ' <span aria-hidden="true">↗</span></a>' : '') +
       (noCopy ? '' : '<button type="button" class="btn" data-copy="' + esc(value) + '">' + esc(C.ui[lang].copy) + '</button>') +
-      '</li>';
+      '</span></li>';
   }
 
   // Фото, которого ещё нет, не ломает вёрстку: блок скрывается

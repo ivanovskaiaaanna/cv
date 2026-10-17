@@ -175,6 +175,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .contact__label { grid-column: 1 / -1; color: var(--ink-2); }
 .contact__value { font: 500 clamp(15px, 4.6vw, 24px)/1.25 var(--f-head); text-decoration: none; letter-spacing: -.01em; }
 .contact__value:hover { color: var(--accent); }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ---------- Появление ---------- */
 .reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
